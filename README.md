@@ -1,3 +1,3 @@
-# Parte de Gabo
+Drive Trabajo:
 
-En esta rama la pantalla permite al usuario registrar una película en su colección personal para organizar las películas vistas, pendientes o favoritas.
+https://drive.google.com/drive/folders/1E56HA_bkqP2hnSCprMv9Iz3ffj_btBNt
