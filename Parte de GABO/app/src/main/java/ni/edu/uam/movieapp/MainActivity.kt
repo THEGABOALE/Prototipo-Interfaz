@@ -105,7 +105,7 @@ fun MovieApp() {
             genero = "Acción / Drama",
             anio = 2022,
             descripcion = "Batman investiga una serie de crímenes en Gotham mientras descubre una red de corrupción.",
-            imagenRes = R.drawable.batman
+            imagenRes = R.drawable.the_batman
         )
     )
 
@@ -173,9 +173,15 @@ fun ListaPeliculasScreen(
     onIrFavoritos: () -> Unit
 ) {
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
                 title = { Text("Películas") },
+                colors = androidx.compose.material3.TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimary
+                ),
                 actions = {
                     IconButton(onClick = onIrFavoritos) {
                         Icon(
@@ -200,7 +206,10 @@ fun ListaPeliculasScreen(
                         .fillMaxWidth()
                         .clickable { onPeliculaClick(pelicula) },
                     shape = RoundedCornerShape(16.dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
+                    elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+                    colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surface
+                    )
                 ) {
                     Row(
                         modifier = Modifier
@@ -251,9 +260,16 @@ fun DetallePeliculaScreen(
     onIrFavoritos: () -> Unit
 ) {
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
                 title = { Text("Detalle") },
+                colors = androidx.compose.material3.TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimary
+                ),
                 navigationIcon = {
                     IconButton(onClick = onVolver) {
                         Icon(
@@ -318,7 +334,11 @@ fun DetallePeliculaScreen(
 
             Button(
                 onClick = onToggleFavorito,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = androidx.compose.material3.ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.tertiary,
+                    contentColor = MaterialTheme.colorScheme.onTertiary
+                )
             ) {
                 Text(
                     if (esFavorita) "Quitar de favoritos"
@@ -331,8 +351,8 @@ fun DetallePeliculaScreen(
             if (esFavorita) {
                 Text(
                     text = "Esta película está en tu lista de favoritos.",
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Medium
+                    color = MaterialTheme.colorScheme.tertiary,
+                    fontWeight = FontWeight.Bold
                 )
             }
         }
@@ -347,9 +367,15 @@ fun FavoritosScreen(
     onPeliculaClick: (Pelicula) -> Unit
 ) {
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
                 title = { Text("Mis favoritos") },
+                colors = androidx.compose.material3.TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
+                ),
                 navigationIcon = {
                     IconButton(onClick = onVolverInicio) {
                         Icon(
@@ -392,7 +418,10 @@ fun FavoritosScreen(
                             .fillMaxWidth()
                             .clickable { onPeliculaClick(pelicula) },
                         shape = RoundedCornerShape(16.dp),
-                        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
+                        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+                        colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.surface
+                        )
                     ) {
                         Row(
                             modifier = Modifier
